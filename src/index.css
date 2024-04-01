@@ -2,4 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@media screen and (max-width: 500px) {
+   .mainFlex{
+    gap: 20px;
+   }
+}
 
+
+.sellbutton{  
+    border-color: #ffff;
+    border-bottom: 5px solid #3a77ff;
+    border-left: 5px solid #ffce32 ;
+    border-right: 5px solid #23e5db ;
+    border-top: 5px solid #3a77ff;
+}
