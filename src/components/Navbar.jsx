@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { FaSearch ,FaPlus } from 'react-icons/fa';
 import { IoChevronDownOutline ,IoChevronUpOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 import '../index.css'
 import { Link } from 'react-router-dom';
 function navbar() {
   const [search ,setSearch] = useState('')
-
+  const navigate = useNavigate()
   const handleSearch = (e)=>{
     setSearch(e.target.value)
   }
@@ -13,7 +14,7 @@ function navbar() {
     <nav className='py-6 bg-slate-300 h-16 fixed w-full top-0 left-0 z-30 transition-colors duration-300'>
         <div className='flex relative mainFlex  bottom-4 gap-5 left-3'>
           <Link to={'/'}>
-         <svg className='' width="48px" height="48px" viewBox="0 0 1024 1024" data-aut-id="icon" class="" fill-rule="evenodd"><path class="rui-w4DG7" d="M661.333 256v512h-128v-512h128zM277.333 298.667c117.824 0 213.333 95.531 213.333 213.333s-95.509 213.333-213.333 213.333c-117.824 0-213.333-95.531-213.333-213.333s95.509-213.333 213.333-213.333zM794.496 384l37.504 37.504 37.504-37.504h90.496v90.496l-37.504 37.504 37.504 37.504v90.496h-90.496l-37.504-37.504-37.504 37.504h-90.496v-90.496l37.504-37.504-37.504-37.504v-90.496h90.496zM277.333 426.667c-47.061 0-85.333 38.293-85.333 85.333s38.272 85.333 85.333 85.333c47.061 0 85.333-38.293 85.333-85.333s-38.272-85.333-85.333-85.333z"></path></svg>
+         <svg className='' width="48px" height="48px" viewBox="0 0 1024 1024" data-aut-id="icon"><path  d="M661.333 256v512h-128v-512h128zM277.333 298.667c117.824 0 213.333 95.531 213.333 213.333s-95.509 213.333-213.333 213.333c-117.824 0-213.333-95.531-213.333-213.333s95.509-213.333 213.333-213.333zM794.496 384l37.504 37.504 37.504-37.504h90.496v90.496l-37.504 37.504 37.504 37.504v90.496h-90.496l-37.504-37.504-37.504 37.504h-90.496v-90.496l37.504-37.504-37.504-37.504v-90.496h90.496zM277.333 426.667c-47.061 0-85.333 38.293-85.333 85.333s38.272 85.333 85.333 85.333c47.061 0 85.333-38.293 85.333-85.333s-38.272-85.333-85.333-85.333z"></path></svg>
           </Link>
         
          <div className='hidden sm:flex items-center'>
@@ -35,7 +36,7 @@ function navbar() {
         
         
         <div className=' md:pl-5 loginDiv max-[400]:'>
-        <p className='font-semibold text-lg pt-2 underline'>Login</p>
+        <p onClick={()=> navigate('/login')} className='font-semibold cursor-pointer text-lg pt-2 underline'>Login</p>
         </div>
        
         <div className='flex pt-1  sellicon'>

@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
 import logo from '../assets/olx-seeklogo.png'
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { SignUP } from '../context/authContext';
+import { signUp } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     let [name , setName] = useState('')
     let [email , setEmail] = useState('')
-    let [phone ,setPhone] = useState(null)
+    let [phone ,setPhone] = useState('')
     let [password , setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate()
 
+
     const handleFormSubmit = async(e)=>{
         e.preventDefault()
         try {
-            await SignUP(name ,email,password,phone)
+            await signUp(name ,email,password,phone)
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
     }
 
+
   return (
 <div className="flex justify-center items-center h-screen">
   <div className="border p-8 rounded-md shadow-md">
-    <img src={logo}  className='mx-auto w-32 h-32 mb-4' alt="" />
+    <img onClick={()=>navigate('/')} src={logo}  className='mx-auto cursor-pointer w-32 h-32 mb-4' alt="" />
     <form onSubmit={handleFormSubmit}>
       <label htmlFor="name" className="block mb-2">Username</label>
       <input
@@ -77,7 +80,7 @@ export default function Signup() {
 </div>
       <button type='submit' className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300">Signup</button>
     </form>
-    <p className="text-center mt-4">Already have an account? <a href="#" className="text-blue-500">Login</a></p>
+    <p className="text-center mt-4">Already have an account? <a href="" onClick={()=>navigate('/login')} className="text-blue-500">Login</a></p>
   </div>
 </div>
 
